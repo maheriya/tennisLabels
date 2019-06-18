@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>5</id>
+      <name>TennisAnnotation</name>
+      <size>44</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker>https://github.com/maheriya/tennisLabels/issues</bugtracker>
+      <flipped>False</flipped>
+      <created>2019-06-11 21:54:30.265844+03:00</created>
+      <updated>2019-06-11 22:12:25.033535+03:00</updated>
+      <start_frame>0</start_frame>
+      <stop_frame>0</stop_frame>
+      <frame_filter></frame_filter>
+      <labels>
+        <label>
+          <name>ball</name>
+          <attributes>
+            <attribute>
+              <name>color</name>
+              <mutable>False</mutable>
+              <input_type>radio</input_type>
+              <default_value>green</default_value>
+              <values>green
+red
+magenta</values>
+            </attribute>
+            <attribute>
+              <name>type</name>
+              <mutable>True</mutable>
+              <input_type>radio</input_type>
+              <default_value>inplay</default_value>
+              <values>inplay
+abandoned
+bg</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>racket</name>
+          <attributes>
+            <attribute>
+              <name>color</name>
+              <mutable>False</mutable>
+              <input_type>radio</input_type>
+              <default_value>cyan</default_value>
+              <values>cyan
+blue
+yellow</values>
+            </attribute>
+            <attribute>
+              <name>type</name>
+              <mutable>True</mutable>
+              <input_type>radio</input_type>
+              <default_value>__undefined__</default_value>
+              <values>__undefined__
+full
+partial</values>
+            </attribute>
+          </attributes>
+        </label>
+      </labels>
+      <segments>
+        <segment>
+          <id>5</id>
+          <start>0</start>
+          <stop>43</stop>
+          <url>http://localhost:8080/?id=5</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>django</username>
+        <email>django@normandy.com</email>
+      </owner>
+    </task>
+    <dumped>2019-06-11 22:12:32.744598+03:00</dumped>
+  </meta>
+  <image id="0" name="729b2640-IMXTX2_3525.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1286.63" ytl="215.97" xbr="1296.96" ybr="226.30">
+      <attribute name="color">green</attribute>
+      <attribute name="type">inplay</attribute>
+    </box>
+    <box label="racket" occluded="0" xtl="1272.86" ytl="205.42" xbr="1304.53" ybr="265.55">
+      <attribute name="color">cyan</attribute>
+      <attribute name="type">full</attribute>
+    </box>
+    <box label="ball" occluded="0" xtl="860.71" ytl="612.87" xbr="879.07" ybr="631.46">
+      <attribute name="color">green</attribute>
+      <attribute name="type">abandoned</attribute>
+    </box>
+    <box label="ball" occluded="0" xtl="634.83" ytl="460.71" xbr="643.23" ybr="471.71">
+      <attribute name="color">green</attribute>
+      <attribute name="type">abandoned</attribute>
+    </box>
+  </image>
+  <image id="1" name="729b2640-IMXTX2_3526.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1272.94" ytl="209.41" xbr="1287.28" ybr="224.23">
+      <attribute name="color">green</attribute>
+      <attribute name="type">inplay</attribute>
+    </box>
+    <box label="racket" occluded="0" xtl="1257.08" ytl="208.86" xbr="1289.98" ybr="271.26">
+      <attribute name="color">cyan</attribute>
+      <attribute name="type">full</attribute>
+    </box>
+    <box label="ball" occluded="0" xtl="863.64" ytl="611.17" xbr="881.68" ybr="632.20">
+      <attribute name="color">green</attribute>
+      <attribute name="type">abandoned</attribute>
+    </box>
+    <box label="ball" occluded="0" xtl="634.70" ytl="460.80" xbr="643.09" ybr="472.08">
+      <attribute name="color">green</attribute>
+      <attribute name="type">abandoned</attribute>
+    </box>
+  </image>
+</annotations>

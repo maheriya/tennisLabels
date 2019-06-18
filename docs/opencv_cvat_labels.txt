@@ -1,1 +1,1 @@
-ball @radio=color:green,red,magenta ~radio=type:inplay,abandoned,bg racket @radio=color:cyan,blue,yellow ~radio=type:__undefined__,full,partial
+ball otherball racket ~radio=type:front,side player nonplayer

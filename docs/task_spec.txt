@@ -1,0 +1,11 @@
+Task specification when using CVAT:
+
+Name: 4_30_16_2cb14519
+Labels: ball otherball racket ~radio=type:front,side player nonplayer
+Bug Tracker: https://github.com/maheriya/tennisLabels/issues
+Dataset Repository:
+Use LFS:
+Source: Share
+Z-Order:
+Image Quality: 95
+Select Files: Check&select 4_30_16-2cb14519 folder in share menu
