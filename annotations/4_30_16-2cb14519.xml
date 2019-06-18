@@ -1,0 +1,1438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>8</id>
+      <name>RunAnnotation_4_30_16_2cb14519</name>
+      <size>203</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker>https://github.com/maheriya/tennisLabels/issues</bugtracker>
+      <flipped>False</flipped>
+      <created>2019-06-17 04:51:08.816225+03:00</created>
+      <updated>2019-06-18 02:29:23.687708+03:00</updated>
+      <start_frame>0</start_frame>
+      <stop_frame>0</stop_frame>
+      <frame_filter></frame_filter>
+      <labels>
+        <label>
+          <name>ball</name>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>otherball</name>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>racket</name>
+          <attributes>
+            <attribute>
+              <name>type</name>
+              <mutable>True</mutable>
+              <input_type>radio</input_type>
+              <default_value>front</default_value>
+              <values>front
+side</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>player</name>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>nonplayer</name>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+      <segments>
+        <segment>
+          <id>8</id>
+          <start>0</start>
+          <stop>202</stop>
+          <url>http://localhost:8080/?id=8</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>django</username>
+        <email>django@normandy.com</email>
+      </owner>
+    </task>
+    <dumped>2019-06-18 02:32:07.431690+03:00</dumped>
+  </meta>
+  <image id="0" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0599.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1408.38" ytl="299.50" xbr="1415.57" ybr="306.25">
+    </box>
+    <box label="racket" occluded="1" xtl="1433.06" ytl="384.33" xbr="1487.04" ybr="411.87">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="1" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0600.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1409.93" ytl="290.73" xbr="1417.13" ybr="297.49">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.92" ytl="380.66" xbr="1486.64" ybr="407.76">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="2" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0601.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1411.48" ytl="281.97" xbr="1418.68" ybr="288.72">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.78" ytl="376.99" xbr="1486.23" ybr="403.65">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="3" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0602.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1413.04" ytl="273.20" xbr="1420.23" ybr="279.95">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.64" ytl="373.32" xbr="1485.82" ybr="399.54">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="4" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0603.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1414.59" ytl="264.44" xbr="1421.79" ybr="271.19">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.49" ytl="369.65" xbr="1485.41" ybr="395.42">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="5" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0604.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1416.15" ytl="255.67" xbr="1423.34" ybr="262.42">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.35" ytl="365.98" xbr="1485.01" ybr="391.31">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="6" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0605.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1417.70" ytl="246.90" xbr="1424.89" ybr="253.66">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.21" ytl="362.31" xbr="1484.60" ybr="387.20">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="7" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0606.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1419.25" ytl="238.14" xbr="1426.45" ybr="244.89">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.21" ytl="359.77" xbr="1478.30" ybr="384.08">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="8" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0607.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1420.81" ytl="229.37" xbr="1428.00" ybr="236.12">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.20" ytl="357.22" xbr="1472.00" ybr="380.95">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="9" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0608.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1422.36" ytl="220.61" xbr="1429.56" ybr="227.36">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.20" ytl="354.67" xbr="1465.70" ybr="377.83">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="10" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0609.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1423.92" ytl="211.84" xbr="1431.11" ybr="218.59">
+    </box>
+    <box label="racket" occluded="1" xtl="1432.19" ytl="352.12" xbr="1459.40" ybr="374.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="11" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0610.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1425.33" ytl="205.19" xbr="1432.52" ybr="211.94">
+    </box>
+    <box label="racket" occluded="1" xtl="1433.20" ytl="351.11" xbr="1462.11" ybr="373.60">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="12" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0611.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1426.74" ytl="198.54" xbr="1433.93" ybr="205.29">
+    </box>
+    <box label="racket" occluded="1" xtl="1434.20" ytl="350.09" xbr="1464.82" ybr="372.50">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="13" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0612.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1428.15" ytl="191.89" xbr="1435.34" ybr="198.64">
+    </box>
+    <box label="racket" occluded="1" xtl="1435.20" ytl="349.08" xbr="1467.54" ybr="371.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="14" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0613.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1429.56" ytl="185.24" xbr="1436.76" ybr="192.00">
+    </box>
+    <box label="racket" occluded="1" xtl="1436.21" ytl="347.72" xbr="1467.60" ybr="370.62">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="15" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0614.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1430.97" ytl="178.59" xbr="1438.17" ybr="185.35">
+    </box>
+    <box label="racket" occluded="1" xtl="1437.21" ytl="346.35" xbr="1467.66" ybr="369.83">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="16" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0615.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1432.38" ytl="171.95" xbr="1439.58" ybr="178.70">
+    </box>
+    <box label="racket" occluded="1" xtl="1438.21" ytl="344.99" xbr="1467.72" ybr="369.05">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="17" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0616.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1433.59" ytl="166.38" xbr="1440.78" ybr="173.13">
+    </box>
+    <box label="racket" occluded="1" xtl="1439.21" ytl="343.63" xbr="1467.78" ybr="368.27">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="18" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0617.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1434.79" ytl="160.81" xbr="1441.99" ybr="167.57">
+    </box>
+    <box label="racket" occluded="1" xtl="1440.22" ytl="342.26" xbr="1467.84" ybr="367.48">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="19" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0618.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1435.99" ytl="155.25" xbr="1443.19" ybr="162.00">
+    </box>
+    <box label="racket" occluded="1" xtl="1441.22" ytl="340.90" xbr="1467.90" ybr="366.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="20" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0619.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1437.20" ytl="149.68" xbr="1444.39" ybr="156.43">
+    </box>
+    <box label="racket" occluded="1" xtl="1442.56" ytl="341.04" xbr="1468.58" ybr="365.74">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="21" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0620.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1438.39" ytl="145.24" xbr="1445.61" ybr="152.06">
+    </box>
+    <box label="racket" occluded="1" xtl="1443.91" ytl="341.18" xbr="1469.26" ybr="364.78">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="22" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0621.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1439.59" ytl="140.81" xbr="1446.83" ybr="147.70">
+    </box>
+    <box label="racket" occluded="1" xtl="1445.26" ytl="341.32" xbr="1469.94" ybr="363.82">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="23" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0622.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1440.78" ytl="136.37" xbr="1448.05" ybr="143.33">
+    </box>
+    <box label="racket" occluded="1" xtl="1446.60" ytl="341.46" xbr="1470.62" ybr="362.86">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="24" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0623.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1441.98" ytl="131.93" xbr="1449.27" ybr="138.96">
+    </box>
+    <box label="racket" occluded="1" xtl="1447.95" ytl="341.60" xbr="1471.30" ybr="361.90">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="25" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0624.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1443.17" ytl="128.45" xbr="1450.50" ybr="135.55">
+    </box>
+    <box label="racket" occluded="1" xtl="1449.24" ytl="342.06" xbr="1471.76" ybr="362.21">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="26" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0625.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1444.37" ytl="124.97" xbr="1451.72" ybr="132.14">
+    </box>
+    <box label="racket" occluded="1" xtl="1450.53" ytl="342.51" xbr="1472.21" ybr="362.52">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="27" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0626.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1445.56" ytl="121.49" xbr="1452.94" ybr="128.73">
+    </box>
+    <box label="racket" occluded="1" xtl="1451.81" ytl="342.97" xbr="1472.67" ybr="362.82">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="28" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0627.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1446.76" ytl="118.01" xbr="1454.16" ybr="125.32">
+    </box>
+    <box label="racket" occluded="1" xtl="1453.10" ytl="343.43" xbr="1473.13" ybr="363.13">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="29" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0628.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1447.96" ytl="114.53" xbr="1455.38" ybr="121.91">
+    </box>
+    <box label="racket" occluded="1" xtl="1454.39" ytl="343.88" xbr="1473.59" ybr="363.44">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="30" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0629.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1449.15" ytl="111.05" xbr="1456.60" ybr="118.50">
+    </box>
+    <box label="racket" occluded="1" xtl="1455.68" ytl="344.34" xbr="1474.04" ybr="363.75">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="31" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0630.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1450.41" ytl="108.78" xbr="1457.86" ybr="116.22">
+    </box>
+    <box label="racket" occluded="1" xtl="1456.97" ytl="344.80" xbr="1474.50" ybr="364.06">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="32" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0631.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1451.67" ytl="106.50" xbr="1459.12" ybr="113.95">
+    </box>
+    <box label="racket" occluded="1" xtl="1456.97" ytl="344.80" xbr="1474.50" ybr="364.06">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="33" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0632.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1452.93" ytl="104.23" xbr="1460.38" ybr="111.67">
+    </box>
+  </image>
+  <image id="34" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0633.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1454.19" ytl="101.95" xbr="1461.64" ybr="109.40">
+    </box>
+  </image>
+  <image id="35" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0634.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1455.28" ytl="100.89" xbr="1462.73" ybr="108.33">
+    </box>
+  </image>
+  <image id="36" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0635.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1456.38" ytl="99.82" xbr="1463.83" ybr="107.27">
+    </box>
+  </image>
+  <image id="37" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0636.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1457.47" ytl="98.75" xbr="1464.92" ybr="106.20">
+    </box>
+  </image>
+  <image id="38" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0637.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1458.56" ytl="97.69" xbr="1466.01" ybr="105.13">
+    </box>
+  </image>
+  <image id="39" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0638.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1459.66" ytl="96.62" xbr="1467.11" ybr="104.07">
+    </box>
+  </image>
+  <image id="40" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0639.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1460.75" ytl="95.55" xbr="1468.20" ybr="103.00">
+    </box>
+  </image>
+  <image id="41" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0640.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1461.95" ytl="95.58" xbr="1469.40" ybr="103.03">
+    </box>
+  </image>
+  <image id="42" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0641.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1463.15" ytl="95.61" xbr="1470.60" ybr="103.06">
+    </box>
+  </image>
+  <image id="43" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0642.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1464.35" ytl="95.64" xbr="1471.80" ybr="103.09">
+    </box>
+  </image>
+  <image id="44" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0643.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1465.55" ytl="95.67" xbr="1473.00" ybr="103.12">
+    </box>
+  </image>
+  <image id="45" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0644.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1466.75" ytl="96.92" xbr="1474.20" ybr="104.37">
+    </box>
+  </image>
+  <image id="46" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0645.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1467.95" ytl="98.17" xbr="1475.40" ybr="105.61">
+    </box>
+  </image>
+  <image id="47" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0646.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1469.15" ytl="99.41" xbr="1476.60" ybr="106.86">
+    </box>
+  </image>
+  <image id="48" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0647.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1470.35" ytl="100.66" xbr="1477.80" ybr="108.11">
+    </box>
+  </image>
+  <image id="49" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0648.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1471.55" ytl="101.91" xbr="1479.00" ybr="109.35">
+    </box>
+  </image>
+  <image id="50" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0649.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1472.75" ytl="103.15" xbr="1480.20" ybr="110.60">
+    </box>
+    <box label="racket" occluded="0" xtl="1472.10" ytl="320.23" xbr="1506.09" ybr="370.17">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="51" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0650.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1473.74" ytl="105.52" xbr="1481.29" ybr="113.12">
+    </box>
+    <box label="racket" occluded="0" xtl="1473.11" ytl="316.39" xbr="1507.26" ybr="366.69">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="52" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0651.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1474.73" ytl="107.88" xbr="1482.37" ybr="115.64">
+    </box>
+    <box label="racket" occluded="0" xtl="1474.11" ytl="312.56" xbr="1508.43" ybr="363.22">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="53" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0652.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1475.72" ytl="110.25" xbr="1483.46" ybr="118.16">
+    </box>
+    <box label="racket" occluded="0" xtl="1475.12" ytl="308.72" xbr="1509.60" ybr="359.74">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="54" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0653.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1476.71" ytl="112.61" xbr="1484.55" ybr="120.68">
+    </box>
+    <box label="racket" occluded="0" xtl="1477.38" ytl="305.74" xbr="1510.43" ybr="357.69">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="55" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0654.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1477.83" ytl="116.36" xbr="1485.77" ybr="124.59">
+    </box>
+    <box label="racket" occluded="0" xtl="1479.64" ytl="302.76" xbr="1511.27" ybr="355.65">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="56" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0655.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1478.96" ytl="120.11" xbr="1487.00" ybr="128.49">
+    </box>
+    <box label="racket" occluded="0" xtl="1481.90" ytl="299.77" xbr="1512.10" ybr="353.60">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="57" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0656.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1480.09" ytl="123.86" xbr="1488.22" ybr="132.40">
+    </box>
+    <box label="racket" occluded="0" xtl="1485.45" ytl="299.38" xbr="1513.28" ybr="352.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="58" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0657.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1481.22" ytl="127.60" xbr="1489.45" ybr="136.30">
+    </box>
+    <box label="racket" occluded="0" xtl="1489.00" ytl="298.98" xbr="1514.45" ybr="351.80">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="59" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0658.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1482.35" ytl="131.35" xbr="1490.67" ybr="140.20">
+    </box>
+    <box label="racket" occluded="0" xtl="1492.10" ytl="300.70" xbr="1514.45" ybr="351.80">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="60" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0659.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1483.47" ytl="135.10" xbr="1491.90" ybr="144.11">
+    </box>
+    <box label="racket" occluded="0" xtl="1496.40" ytl="306.11" xbr="1514.40" ybr="348.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="61" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0660.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1484.39" ytl="140.27" xbr="1492.82" ybr="149.28">
+    </box>
+    <box label="racket" occluded="0" xtl="1501.27" ytl="316.17" xbr="1520.40" ybr="349.50">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="62" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0661.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1485.31" ytl="145.43" xbr="1493.74" ybr="154.44">
+    </box>
+    <box label="racket" occluded="0" xtl="1506.97" ytl="325.28" xbr="1526.12" ybr="348.50">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="63" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0662.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1486.23" ytl="150.60" xbr="1494.66" ybr="159.61">
+    </box>
+    <box label="racket" occluded="0" xtl="1506.85" ytl="339.31" xbr="1529.50" ybr="367.05">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="64" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0663.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1487.15" ytl="155.77" xbr="1495.58" ybr="164.77">
+    </box>
+    <box label="racket" occluded="0" xtl="1508.18" ytl="339.78" xbr="1533.20" ybr="377.00">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="65" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0664.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1488.40" ytl="161.43" xbr="1496.82" ybr="170.44">
+    </box>
+    <box label="racket" occluded="0" xtl="1508.26" ytl="340.60" xbr="1534.20" ybr="385.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="66" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0665.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1489.65" ytl="167.09" xbr="1498.07" ybr="176.10">
+    </box>
+    <box label="racket" occluded="0" xtl="1507.48" ytl="341.68" xbr="1534.60" ybr="398.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="67" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0666.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1490.89" ytl="172.75" xbr="1499.32" ybr="181.76">
+    </box>
+    <box label="racket" occluded="0" xtl="1506.20" ytl="341.85" xbr="1533.30" ybr="405.50">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="68" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0667.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1492.14" ytl="178.42" xbr="1500.57" ybr="187.43">
+    </box>
+    <box label="racket" occluded="0" xtl="1505.04" ytl="341.91" xbr="1530.20" ybr="407.10">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="69" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0668.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1493.39" ytl="184.08" xbr="1501.81" ybr="193.09">
+    </box>
+    <box label="racket" occluded="0" xtl="1504.55" ytl="341.10" xbr="1527.76" ybr="407.10">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="70" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0669.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1494.63" ytl="189.74" xbr="1503.06" ybr="198.75">
+    </box>
+    <box label="racket" occluded="0" xtl="1504.06" ytl="338.10" xbr="1525.33" ybr="403.07">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="71" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0670.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1494.71" ytl="198.65" xbr="1503.22" ybr="207.68">
+    </box>
+    <box label="racket" occluded="0" xtl="1503.57" ytl="335.10" xbr="1522.90" ybr="399.03">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="72" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0671.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1494.78" ytl="207.55" xbr="1503.38" ybr="216.62">
+    </box>
+    <box label="racket" occluded="0" xtl="1504.31" ytl="328.74" xbr="1524.20" ybr="391.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="73" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0672.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1495.31" ytl="214.39" xbr="1504.00" ybr="223.48">
+    </box>
+    <box label="racket" occluded="0" xtl="1507.54" ytl="320.71" xbr="1527.90" ybr="381.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="74" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0673.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1495.84" ytl="221.23" xbr="1504.62" ybr="230.34">
+    </box>
+    <box label="racket" occluded="0" xtl="1503.73" ytl="312.11" xbr="1534.40" ybr="368.50">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="75" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0674.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1498.97" ytl="231.64" xbr="1507.84" ybr="240.79">
+    </box>
+    <box label="racket" occluded="0" xtl="1498.85" ytl="304.66" xbr="1541.30" ybr="353.00">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="76" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0675.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1499.12" ytl="240.00" xbr="1508.07" ybr="249.17">
+    </box>
+    <box label="racket" occluded="0" xtl="1492.87" ytl="296.28" xbr="1544.50" ybr="334.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="77" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0676.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1499.06" ytl="248.70" xbr="1508.10" ybr="257.90">
+    </box>
+    <box label="racket" occluded="0" xtl="1484.52" ytl="273.15" xbr="1543.00" ybr="313.10">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="78" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0677.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1499.01" ytl="257.40" xbr="1508.14" ybr="266.62">
+    </box>
+    <box label="racket" occluded="0" xtl="1475.18" ytl="262.50" xbr="1531.50" ybr="303.82">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="79" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0678.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1483.00" ytl="258.48" xbr="1492.22" ybr="267.74">
+    </box>
+    <box label="racket" occluded="0" xtl="1465.84" ytl="259.30" xbr="1509.60" ybr="306.86">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="80" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0679.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1453.29" ytl="254.30" xbr="1462.60" ybr="263.58">
+    </box>
+    <box label="racket" occluded="0" xtl="1456.50" ytl="246.55" xbr="1487.70" ybr="309.90">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="81" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0680.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1425.87" ytl="250.87" xbr="1435.26" ybr="260.17">
+    </box>
+    <box label="racket" occluded="0" xtl="1439.45" ytl="249.01" xbr="1470.78" ybr="311.31">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="82" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0681.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1399.89" ytl="247.31" xbr="1409.37" ybr="256.64">
+    </box>
+    <box label="racket" occluded="0" xtl="1421.30" ytl="264.10" xbr="1460.97" ybr="315.87">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="83" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0682.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1373.66" ytl="244.69" xbr="1383.23" ybr="254.05">
+    </box>
+    <box label="racket" occluded="0" xtl="1408.49" ytl="277.49" xbr="1454.70" ybr="321.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="84" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0683.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1343.70" ytl="241.74" xbr="1353.36" ybr="251.13">
+    </box>
+    <box label="racket" occluded="0" xtl="1400.55" ytl="297.78" xbr="1447.30" ybr="325.50">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="85" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0684.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1312.59" ytl="239.26" xbr="1322.34" ybr="248.67">
+    </box>
+    <box label="racket" occluded="0" xtl="1396.72" ytl="310.52" xbr="1443.80" ybr="338.20">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="86" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0685.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1280.75" ytl="237.69" xbr="1290.58" ybr="247.13">
+    </box>
+    <box label="racket" occluded="0" xtl="1395.20" ytl="326.29" xbr="1442.63" ybr="353.00">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="87" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0686.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1247.07" ytl="236.00" xbr="1256.99" ybr="245.47">
+    </box>
+    <box label="racket" occluded="0" xtl="1395.50" ytl="333.29" xbr="1441.70" ybr="368.30">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="88" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0687.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1210.87" ytl="234.54" xbr="1220.88" ybr="244.04">
+    </box>
+    <box label="racket" occluded="0" xtl="1398.70" ytl="339.71" xbr="1440.11" ybr="380.20">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="89" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0688.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1175.01" ytl="234.12" xbr="1185.10" ybr="243.64">
+    </box>
+    <box label="racket" occluded="0" xtl="1404.55" ytl="346.51" xbr="1441.50" ybr="393.15">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="90" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0689.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1135.02" ytl="233.70" xbr="1145.20" ybr="243.25">
+    </box>
+    <box label="racket" occluded="0" xtl="1410.40" ytl="353.30" xbr="1442.90" ybr="406.10">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="91" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0690.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1096.42" ytl="234.81" xbr="1106.78" ybr="244.56">
+    </box>
+    <box label="racket" occluded="0" xtl="1415.72" ytl="358.65" xbr="1449.37" ybr="411.59">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="92" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0691.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1054.59" ytl="236.47" xbr="1065.11" ybr="246.43">
+    </box>
+    <box label="racket" occluded="0" xtl="1422.13" ytl="365.90" xbr="1456.92" ybr="419.76">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="93" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0692.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1005.73" ytl="239.40" xbr="1016.42" ybr="249.57">
+    </box>
+    <box label="racket" occluded="0" xtl="1428.94" ytl="368.59" xbr="1462.10" ybr="423.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="94" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0693.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="960.18" ytl="240.99" xbr="971.05" ybr="251.36">
+    </box>
+    <box label="racket" occluded="0" xtl="1436.20" ytl="373.13" xbr="1469.20" ybr="428.10">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="95" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0694.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="914.05" ytl="244.07" xbr="925.09" ybr="254.64">
+    </box>
+    <box label="racket" occluded="0" xtl="1438.29" ytl="375.68" xbr="1473.12" ybr="430.51">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="96" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0695.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="866.60" ytl="248.34" xbr="877.81" ybr="259.12">
+    </box>
+    <box label="racket" occluded="0" xtl="1442.87" ytl="377.18" xbr="1479.52" ybr="431.87">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="97" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0696.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="813.12" ytl="253.76" xbr="824.50" ybr="264.74">
+    </box>
+    <box label="racket" occluded="0" xtl="1445.18" ytl="378.01" xbr="1482.82" ybr="432.31">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="98" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0697.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="759.45" ytl="259.75" xbr="771.00" ybr="270.94">
+    </box>
+    <box label="racket" occluded="0" xtl="1447.49" ytl="378.84" xbr="1486.11" ybr="432.74">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="99" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0698.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="702.62" ytl="266.79" xbr="714.35" ybr="278.19">
+    </box>
+    <box label="racket" occluded="0" xtl="1449.80" ytl="379.67" xbr="1489.41" ybr="433.17">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="100" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0699.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="643.50" ytl="274.60" xbr="655.40" ybr="286.20">
+    </box>
+    <box label="racket" occluded="0" xtl="1450.50" ytl="380.50" xbr="1492.70" ybr="433.60">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="101" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0700.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="586.74" ytl="284.99" xbr="598.53" ybr="296.45">
+    </box>
+    <box label="racket" occluded="0" xtl="1454.52" ytl="383.23" xbr="1496.51" ybr="432.99">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="102" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0701.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="529.98" ytl="295.39" xbr="541.66" ybr="306.69">
+    </box>
+    <box label="racket" occluded="0" xtl="1457.29" ytl="385.10" xbr="1499.07" ybr="431.52">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="103" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0702.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="471.50" ytl="307.17" xbr="482.90" ybr="317.90">
+    </box>
+    <box label="racket" occluded="0" xtl="1458.74" ytl="384.69" xbr="1501.30" ybr="430.55">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="104" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0703.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="409.90" ytl="320.12" xbr="421.36" ybr="331.13">
+    </box>
+    <box label="racket" occluded="0" xtl="1460.19" ytl="384.29" xbr="1503.52" ybr="429.59">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="105" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0704.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="347.15" ytl="334.83" xbr="358.50" ybr="345.69">
+    </box>
+    <box label="racket" occluded="0" xtl="1461.63" ytl="383.89" xbr="1505.75" ybr="428.63">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="106" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0705.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="287.20" ytl="348.40" xbr="298.79" ybr="359.64">
+    </box>
+    <box label="racket" occluded="0" xtl="1463.08" ytl="383.48" xbr="1507.97" ybr="427.66">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="107" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0706.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="228.40" ytl="364.00" xbr="240.27" ybr="375.36">
+    </box>
+    <box label="racket" occluded="0" xtl="1464.53" ytl="383.08" xbr="1510.20" ybr="426.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="108" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0707.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="167.43" ytl="380.77" xbr="178.94" ybr="391.71">
+    </box>
+    <box label="racket" occluded="0" xtl="1466.03" ytl="382.26" xbr="1512.10" ybr="425.90">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="109" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0708.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="105.50" ytl="399.74" xbr="116.66" ybr="410.27">
+    </box>
+    <box label="racket" occluded="0" xtl="1467.90" ytl="382.57" xbr="1513.00" ybr="424.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="110" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0796.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="155.08" ytl="381.61" xbr="165.88" ybr="391.72">
+    </box>
+    <box label="racket" occluded="0" xtl="1423.48" ytl="397.80" xbr="1463.60" ybr="417.50">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="111" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0797.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="209.02" ytl="384.06" xbr="219.82" ybr="394.17">
+    </box>
+    <box label="racket" occluded="0" xtl="1420.75" ytl="395.48" xbr="1461.46" ybr="416.87">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="112" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0798.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="259.09" ytl="386.89" xbr="269.89" ybr="397.00">
+    </box>
+    <box label="racket" occluded="0" xtl="1418.02" ytl="393.15" xbr="1459.32" ybr="416.24">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="113" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0799.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="307.64" ytl="390.49" xbr="318.44" ybr="400.60">
+    </box>
+    <box label="racket" occluded="0" xtl="1415.29" ytl="390.83" xbr="1457.18" ybr="415.61">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="114" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0800.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="358.10" ytl="393.18" xbr="368.90" ybr="403.29">
+    </box>
+    <box label="racket" occluded="0" xtl="1412.56" ytl="388.51" xbr="1455.04" ybr="414.98">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="115" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0801.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="405.08" ytl="398.83" xbr="415.88" ybr="408.94">
+    </box>
+    <box label="racket" occluded="0" xtl="1409.83" ytl="386.18" xbr="1452.90" ybr="414.35">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="116" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0802.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="450.96" ytl="402.75" xbr="461.76" ybr="412.86">
+    </box>
+    <box label="racket" occluded="0" xtl="1407.09" ytl="383.86" xbr="1450.76" ybr="413.72">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="117" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0803.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="496.75" ytl="407.76" xbr="507.55" ybr="417.87">
+    </box>
+    <box label="racket" occluded="0" xtl="1404.36" ytl="381.53" xbr="1448.62" ybr="413.09">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="118" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0804.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="539.17" ytl="412.95" xbr="549.97" ybr="423.06">
+    </box>
+    <box label="racket" occluded="0" xtl="1401.63" ytl="379.21" xbr="1446.48" ybr="412.46">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="119" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0805.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="581.59" ytl="418.14" xbr="592.39" ybr="428.25">
+    </box>
+    <box label="racket" occluded="0" xtl="1398.90" ytl="376.89" xbr="1444.34" ybr="411.83">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="120" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0806.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="624.02" ytl="423.33" xbr="634.82" ybr="433.44">
+    </box>
+    <box label="racket" occluded="0" xtl="1396.17" ytl="374.56" xbr="1442.20" ybr="411.20">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="121" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0807.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="659.79" ytl="429.98" xbr="670.42" ybr="439.98">
+    </box>
+    <box label="racket" occluded="0" xtl="1393.39" ytl="371.04" xbr="1441.30" ybr="409.80">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="122" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0808.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="697.88" ytl="434.81" xbr="708.34" ybr="444.71">
+    </box>
+    <box label="racket" occluded="0" xtl="1393.35" ytl="368.81" xbr="1441.18" ybr="409.10">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="123" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0809.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="733.54" ytl="441.12" xbr="743.83" ybr="450.91">
+    </box>
+    <box label="racket" occluded="0" xtl="1392.53" ytl="367.30" xbr="1440.29" ybr="407.69">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="124" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0810.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="769.21" ytl="447.43" xbr="779.33" ybr="457.11">
+    </box>
+    <box label="racket" occluded="0" xtl="1391.78" ytl="366.05" xbr="1439.46" ybr="407.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="125" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0811.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="800.95" ytl="454.20" xbr="810.90" ybr="463.76">
+    </box>
+    <box label="racket" occluded="0" xtl="1391.04" ytl="364.80" xbr="1438.64" ybr="407.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="126" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0812.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="832.68" ytl="460.96" xbr="842.46" ybr="470.42">
+    </box>
+    <box label="racket" occluded="0" xtl="1390.29" ytl="363.55" xbr="1437.82" ybr="407.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="127" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0813.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="859.65" ytl="466.87" xbr="869.27" ybr="476.22">
+    </box>
+    <box label="racket" occluded="0" xtl="1390.41" ytl="364.34" xbr="1437.86" ybr="407.73">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="128" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0814.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="891.69" ytl="474.38" xbr="901.13" ybr="483.62">
+    </box>
+    <box label="racket" occluded="0" xtl="1390.53" ytl="365.12" xbr="1437.91" ybr="407.75">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="129" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0815.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="921.07" ytl="480.91" xbr="930.34" ybr="490.04">
+    </box>
+    <box label="racket" occluded="0" xtl="1390.65" ytl="365.90" xbr="1437.95" ybr="407.78">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="130" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0816.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="948.15" ytl="487.76" xbr="957.25" ybr="496.78">
+    </box>
+    <box label="racket" occluded="0" xtl="1390.78" ytl="366.69" xbr="1438.00" ybr="407.80">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="131" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0817.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="975.00" ytl="495.26" xbr="983.30" ybr="503.19">
+    </box>
+    <box label="racket" occluded="0" xtl="1392.37" ytl="368.30" xbr="1437.21" ybr="407.72">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="132" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0818.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="994.66" ytl="493.80" xbr="1002.96" ybr="501.74">
+    </box>
+    <box label="racket" occluded="0" xtl="1393.97" ytl="369.92" xbr="1436.42" ybr="407.64">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="133" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0819.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1009.65" ytl="486.02" xbr="1017.94" ybr="493.96">
+    </box>
+    <box label="racket" occluded="0" xtl="1395.57" ytl="371.54" xbr="1435.63" ybr="407.56">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="134" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0820.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1024.94" ytl="477.19" xbr="1033.23" ybr="485.13">
+    </box>
+    <box label="racket" occluded="0" xtl="1397.16" ytl="373.16" xbr="1434.84" ybr="407.48">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="135" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0821.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1040.24" ytl="469.01" xbr="1048.53" ybr="476.96">
+    </box>
+    <box label="racket" occluded="0" xtl="1398.76" ytl="374.77" xbr="1434.05" ybr="407.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="136" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0822.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1055.84" ytl="461.28" xbr="1064.12" ybr="469.24">
+    </box>
+    <box label="racket" occluded="0" xtl="1400.36" ytl="376.39" xbr="1433.26" ybr="407.32">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="137" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0823.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1066.87" ytl="456.09" xbr="1075.15" ybr="464.05">
+    </box>
+    <box label="racket" occluded="0" xtl="1401.95" ytl="378.01" xbr="1432.47" ybr="407.24">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="138" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0824.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1081.88" ytl="448.04" xbr="1090.15" ybr="456.00">
+    </box>
+    <box label="racket" occluded="1" xtl="1403.55" ytl="379.62" xbr="1431.68" ybr="407.16">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="139" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0825.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1095.51" ytl="442.76" xbr="1103.77" ybr="450.72">
+    </box>
+    <box label="racket" occluded="1" xtl="1405.15" ytl="381.24" xbr="1430.89" ybr="407.08">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="140" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0826.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1109.13" ytl="437.48" xbr="1117.39" ybr="445.45">
+    </box>
+    <box label="racket" occluded="1" xtl="1406.74" ytl="382.86" xbr="1430.10" ybr="407.00">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="141" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0827.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1122.82" ytl="432.15" xbr="1131.08" ybr="440.12">
+    </box>
+    <box label="racket" occluded="1" xtl="1407.26" ytl="384.79" xbr="1439.60" ybr="408.93">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="142" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0828.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1135.46" ytl="427.37" xbr="1143.72" ybr="435.34">
+    </box>
+    <box label="racket" occluded="1" xtl="1407.78" ytl="386.72" xbr="1449.10" ybr="410.86">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="143" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0829.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1146.97" ytl="423.61" xbr="1155.23" ybr="431.58">
+    </box>
+    <box label="racket" occluded="1" xtl="1408.30" ytl="388.64" xbr="1458.60" ybr="412.79">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="144" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0830.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1158.33" ytl="420.60" xbr="1166.30" ybr="428.27">
+    </box>
+    <box label="racket" occluded="1" xtl="1408.40" ytl="390.57" xbr="1454.80" ybr="414.71">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="145" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0831.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1169.70" ytl="417.30" xbr="1177.80" ybr="424.96">
+    </box>
+    <box label="racket" occluded="1" xtl="1406.95" ytl="392.50" xbr="1456.00" ybr="416.64">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="146" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0832.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1180.82" ytl="414.60" xbr="1188.70" ybr="422.06">
+    </box>
+    <box label="racket" occluded="1" xtl="1405.49" ytl="394.43" xbr="1454.40" ybr="418.57">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="147" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0833.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1191.94" ytl="411.20" xbr="1200.20" ybr="419.17">
+    </box>
+    <box label="racket" occluded="1" xtl="1407.00" ytl="396.36" xbr="1453.50" ybr="420.50">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="148" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0834.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1202.53" ytl="409.40" xbr="1210.30" ybr="417.07">
+    </box>
+    <box label="racket" occluded="1" xtl="1405.30" ytl="395.30" xbr="1450.81" ybr="419.44">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="149" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0835.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1213.60" ytl="407.15" xbr="1221.14" ybr="414.50">
+    </box>
+    <box label="racket" occluded="1" xtl="1403.60" ytl="398.72" xbr="1450.61" ybr="422.86">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="150" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0836.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1223.90" ytl="404.90" xbr="1231.97" ybr="412.70">
+    </box>
+    <box label="racket" occluded="1" xtl="1401.90" ytl="402.14" xbr="1450.40" ybr="426.29">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="151" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0837.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1232.88" ytl="403.81" xbr="1240.97" ybr="411.62">
+    </box>
+    <box label="racket" occluded="1" xtl="1402.65" ytl="405.82" xbr="1445.50" ybr="429.51">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="152" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0838.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1242.31" ytl="402.99" xbr="1250.42" ybr="410.83">
+    </box>
+    <box label="racket" occluded="1" xtl="1398.14" ytl="410.50" xbr="1444.50" ybr="433.74">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="153" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0839.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1251.73" ytl="402.18" xbr="1259.86" ybr="410.03">
+    </box>
+    <box label="racket" occluded="1" xtl="1397.37" ytl="416.93" xbr="1411.00" ybr="437.47">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="154" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0840.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1260.13" ytl="402.60" xbr="1267.80" ybr="410.00">
+    </box>
+    <box label="racket" occluded="1" xtl="1396.59" ytl="423.37" xbr="1408.50" ybr="441.20">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="155" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0841.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1269.48" ytl="402.54" xbr="1277.25" ybr="410.04">
+    </box>
+    <box label="racket" occluded="1" xtl="1395.81" ytl="429.80" xbr="1407.60" ybr="444.92">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="156" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0842.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1277.69" ytl="401.94" xbr="1285.56" ybr="409.53">
+    </box>
+    <box label="racket" occluded="1" xtl="1396.60" ytl="433.35" xbr="1405.97" ybr="445.30">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="157" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0843.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1286.85" ytl="401.77" xbr="1294.81" ybr="409.46">
+    </box>
+    <box label="racket" occluded="1" xtl="1395.20" ytl="432.80" xbr="1405.90" ybr="444.27">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="158" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0844.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1294.74" ytl="402.88" xbr="1302.80" ybr="410.66">
+    </box>
+    <box label="racket" occluded="1" xtl="1388.47" ytl="426.94" xbr="1404.16" ybr="440.91">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="159" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0845.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1302.62" ytl="403.99" xbr="1310.79" ybr="411.87">
+    </box>
+    <box label="racket" occluded="1" xtl="1381.75" ytl="421.07" xbr="1402.43" ybr="437.56">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="160" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0846.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1310.51" ytl="405.10" xbr="1318.77" ybr="413.07">
+    </box>
+    <box label="racket" occluded="0" xtl="1375.02" ytl="415.21" xbr="1400.70" ybr="434.20">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="161" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0847.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1318.30" ytl="406.12" xbr="1325.74" ybr="413.60">
+    </box>
+    <box label="racket" occluded="0" xtl="1368.13" ytl="409.34" xbr="1399.80" ybr="433.90">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="162" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0848.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1325.36" ytl="407.85" xbr="1332.89" ybr="415.39">
+    </box>
+    <box label="racket" occluded="0" xtl="1359.84" ytl="402.65" xbr="1393.60" ybr="437.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="163" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0849.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1332.80" ytl="409.60" xbr="1340.08" ybr="417.05">
+    </box>
+    <box label="racket" occluded="0" xtl="1343.70" ytl="395.33" xbr="1373.50" ybr="434.80">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="164" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0850.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1336.39" ytl="410.92" xbr="1343.81" ybr="418.44">
+    </box>
+    <box label="racket" occluded="0" xtl="1331.50" ytl="381.83" xbr="1361.07" ybr="430.60">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="165" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0851.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1321.81" ytl="405.06" xbr="1329.37" ybr="412.66">
+    </box>
+    <box label="racket" occluded="0" xtl="1323.00" ytl="372.64" xbr="1359.62" ybr="422.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="166" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0852.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1303.37" ytl="399.78" xbr="1311.07" ybr="407.46">
+    </box>
+    <box label="racket" occluded="0" xtl="1316.90" ytl="364.90" xbr="1362.14" ybr="409.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="167" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0853.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1284.34" ytl="394.18" xbr="1292.09" ybr="401.83">
+    </box>
+    <box label="racket" occluded="0" xtl="1315.50" ytl="349.62" xbr="1367.07" ybr="391.46">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="168" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0854.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1265.30" ytl="388.59" xbr="1273.12" ybr="396.20">
+    </box>
+    <box label="racket" occluded="0" xtl="1316.16" ytl="333.21" xbr="1369.14" ybr="372.09">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="169" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0855.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1246.50" ytl="383.94" xbr="1254.30" ybr="391.70">
+    </box>
+    <box label="racket" occluded="0" xtl="1322.05" ytl="317.81" xbr="1376.44" ybr="353.72">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="170" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0856.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1225.20" ytl="378.50" xbr="1232.93" ybr="386.20">
+    </box>
+    <box label="racket" occluded="0" xtl="1336.04" ytl="304.30" xbr="1382.20" ybr="349.00">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="171" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0857.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1202.60" ytl="373.46" xbr="1210.38" ybr="381.18">
+    </box>
+    <box label="racket" occluded="0" xtl="1349.87" ytl="296.00" xbr="1389.64" ybr="345.85">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="172" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0858.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1180.82" ytl="368.20" xbr="1188.66" ybr="375.95">
+    </box>
+    <box label="racket" occluded="0" xtl="1363.70" ytl="287.70" xbr="1397.09" ybr="342.70">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="173" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0859.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1157.63" ytl="364.53" xbr="1165.52" ybr="372.31">
+    </box>
+    <box label="racket" occluded="0" xtl="1378.63" ytl="288.06" xbr="1412.50" ybr="340.12">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="174" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0860.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1134.70" ytl="360.04" xbr="1142.64" ybr="367.85">
+    </box>
+    <box label="racket" occluded="0" xtl="1393.60" ytl="291.04" xbr="1424.94" ybr="340.15">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="175" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0861.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1109.92" ytl="355.34" xbr="1117.92" ybr="363.18">
+    </box>
+    <box label="racket" occluded="0" xtl="1402.53" ytl="294.02" xbr="1437.37" ybr="340.18">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="176" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0862.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1083.30" ytl="350.83" xbr="1091.35" ybr="358.69">
+    </box>
+    <box label="racket" occluded="0" xtl="1406.40" ytl="305.86" xbr="1444.68" ybr="341.24">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="177" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0863.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1056.35" ytl="347.52" xbr="1064.63" ybr="355.75">
+    </box>
+    <box label="racket" occluded="0" xtl="1410.27" ytl="317.70" xbr="1452.00" ybr="342.30">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="178" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0864.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1029.40" ytl="344.21" xbr="1037.90" ybr="352.80">
+    </box>
+    <box label="racket" occluded="0" xtl="1414.14" ytl="328.50" xbr="1453.39" ybr="349.85">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="179" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0865.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="1002.38" ytl="340.46" xbr="1011.48" ybr="349.46">
+    </box>
+    <box label="racket" occluded="0" xtl="1418.01" ytl="337.10" xbr="1454.78" ybr="357.40">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="180" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0866.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="973.64" ytl="337.58" xbr="981.90" ybr="345.55">
+    </box>
+    <box label="racket" occluded="0" xtl="1418.15" ytl="337.06" xbr="1455.40" ybr="368.50">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="181" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0867.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="945.94" ytl="335.74" xbr="954.28" ybr="343.78">
+    </box>
+    <box label="racket" occluded="0" xtl="1418.07" ytl="337.69" xbr="1454.40" ybr="375.90">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="182" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0868.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="912.75" ytl="333.36" xbr="921.18" ybr="341.48">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.99" ytl="338.31" xbr="1453.30" ybr="378.30">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="183" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0869.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="882.55" ytl="331.03" xbr="891.07" ybr="339.22">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.90" ytl="338.93" xbr="1452.20" ybr="380.70">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="184" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0870.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="849.84" ytl="329.53" xbr="858.43" ybr="337.80">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.82" ytl="339.55" xbr="1451.10" ybr="383.10">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="185" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0871.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="817.12" ytl="328.04" xbr="825.80" ybr="336.38">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.74" ytl="340.17" xbr="1450.00" ybr="385.50">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="186" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0872.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="781.24" ytl="327.69" xbr="790.00" ybr="336.10">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.65" ytl="340.80" xbr="1451.12" ybr="383.42">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="187" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0873.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="745.35" ytl="327.35" xbr="754.20" ybr="335.83">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.57" ytl="341.42" xbr="1452.24" ybr="381.34">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="188" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0874.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="709.62" ytl="327.64" xbr="718.55" ybr="336.19">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.49" ytl="342.04" xbr="1453.36" ybr="379.26">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="189" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0875.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="672.06" ytl="328.33" xbr="681.07" ybr="336.96">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.40" ytl="342.66" xbr="1454.48" ybr="377.18">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="190" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0876.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="634.49" ytl="329.02" xbr="643.59" ybr="337.72">
+    </box>
+    <box label="racket" occluded="0" xtl="1417.32" ytl="343.28" xbr="1455.60" ybr="375.10">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="191" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0877.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="591.79" ytl="331.79" xbr="600.99" ybr="340.64">
+    </box>
+    <box label="racket" occluded="0" xtl="1415.39" ytl="343.46" xbr="1455.98" ybr="372.70">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="192" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0878.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="551.49" ytl="333.97" xbr="560.77" ybr="342.95">
+    </box>
+    <box label="racket" occluded="0" xtl="1413.46" ytl="343.64" xbr="1456.35" ybr="370.30">
+      <attribute name="type">side</attribute>
+    </box>
+  </image>
+  <image id="193" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0879.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="511.04" ytl="336.46" xbr="520.42" ybr="345.58">
+    </box>
+    <box label="racket" occluded="0" xtl="1411.53" ytl="343.82" xbr="1456.73" ybr="367.90">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="194" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0880.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="468.47" ytl="340.43" xbr="477.95" ybr="349.69">
+    </box>
+    <box label="racket" occluded="0" xtl="1409.59" ytl="344.00" xbr="1457.10" ybr="365.50">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="195" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0881.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="425.29" ytl="344.48" xbr="434.87" ybr="353.88">
+    </box>
+    <box label="racket" occluded="0" xtl="1407.66" ytl="342.05" xbr="1455.73" ybr="365.08">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="196" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0882.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="382.85" ytl="348.53" xbr="392.52" ybr="358.07">
+    </box>
+    <box label="racket" occluded="0" xtl="1405.73" ytl="340.10" xbr="1454.35" ybr="364.66">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="197" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0883.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="339.02" ytl="354.97" xbr="348.77" ybr="364.65">
+    </box>
+    <box label="racket" occluded="0" xtl="1403.80" ytl="338.15" xbr="1452.98" ybr="364.24">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="198" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0884.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="295.18" ytl="361.42" xbr="305.03" ybr="371.23">
+    </box>
+    <box label="racket" occluded="0" xtl="1401.87" ytl="336.20" xbr="1451.60" ybr="363.82">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="199" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0885.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="251.34" ytl="367.86" xbr="261.29" ybr="377.82">
+    </box>
+    <box label="racket" occluded="0" xtl="1399.93" ytl="335.49" xbr="1449.25" ybr="362.41">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="200" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0886.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="207.50" ytl="374.30" xbr="217.54" ybr="384.40">
+    </box>
+    <box label="racket" occluded="0" xtl="1398.00" ytl="334.78" xbr="1446.89" ybr="361.00">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="201" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0887.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="163.59" ytl="382.75" xbr="173.63" ybr="392.84">
+    </box>
+    <box label="racket" occluded="0" xtl="1396.55" ytl="333.64" xbr="1443.99" ybr="363.20">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+  <image id="202" name="TENNIS/VOCdevkit/4_30_16-2cb14519/JPEGImages/2cb14519-GOPR0051-0888.jpg" width="1920" height="1080">
+    <box label="ball" occluded="0" xtl="119.68" ytl="391.19" xbr="129.72" ybr="401.29">
+    </box>
+    <box label="racket" occluded="0" xtl="1395.10" ytl="332.50" xbr="1441.08" ybr="365.40">
+      <attribute name="type">front</attribute>
+    </box>
+  </image>
+</annotations>
