@@ -1,4 +1,7 @@
 # tennisLabels
+
+![tennisLabels splash](docs/tennis_player.jpg "tennisLabels splash image")
+
 This repository is a collection of tasks and utils to work with CVAT annotation tool
 to annotate tennis videos.
 
