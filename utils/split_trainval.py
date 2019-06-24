@@ -41,20 +41,20 @@ def splitDataset(vocdir):
     print("Found {} labels".format(len(labels)))
     # 10% of labels for val
     nval = int(len(labels)*0.1)
-    tlabels = labels[0:nval]
-    vlabels = labels[nval:]
+    vlabels = labels[0:nval]
+    tlabels = labels[nval:]
 
     print('Created {t} train and {v} val labels.'.format(v=len(vlabels), t=len(tlabels)))
     if not os.path.exists(imgsetsdir):
         os.makedirs(imgsetsdir)
     with open(os.path.join(imgsetsdir, 'train.txt'), 'w') as outFile:
-        outFile.write('\n'.join(tlabels))
+        outFile.write('\n'.join(tlabels) + '\n')
 
     with open(os.path.join(imgsetsdir, 'val.txt'), 'w') as outFile:
-        outFile.write('\n'.join(vlabels))
+        outFile.write('\n'.join(vlabels) + '\n')
 
     with open(os.path.join(imgsetsdir, 'trainval.txt'), 'w') as outFile:
-        outFile.write('\n'.join(labels))
+        outFile.write('\n'.join(labels) + '\n')
 
 
 def main():
