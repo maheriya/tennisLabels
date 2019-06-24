@@ -1,1 +1,1 @@
-This directory contains annotations for tennis videos
+This directory contains a few annotations for tennis videos as examples.
