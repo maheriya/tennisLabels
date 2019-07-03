@@ -11,6 +11,8 @@
 ## This works best if you arrange your video dumps inside a VOC format directory
 ## structure before doing the annotations. That way, CVAT will use real paths
 ## in the XML, and after running this script, no further changes will be necessary
+## This flow also sets things up nicely for conversion to TFRecord format if you need
+## to go that way.
 import os
 import sys
 import hashlib

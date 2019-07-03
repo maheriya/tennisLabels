@@ -18,6 +18,11 @@ cd $vocdir
 echo "In $vocdir"
 foreach base ( $bases )
   echo $base
+  @ cnt = `find $vocdir/$base/Annotations/ -name '*.xml' | wc -l`
+  if ( $cnt < 2 ) then
+    ## Skip if not enough annotations
+    continue
+  endif
   #which $repodir/utils/split_trainval.py
   $repodir/utils/split_trainval.py $base
 end
