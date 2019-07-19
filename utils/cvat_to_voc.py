@@ -19,7 +19,7 @@ import hashlib
 import argparse
 
 
-ANNOTATIONS_DIR_ = "/IMAGESETS/TENNIS/tennisLabels/annotations"
+ANNOTATIONS_DIR_ = "/IMAGESETS/TENNIS/tennisAnnotations/annotations"
 IMGROOTDIR_      = "/IMAGESETS/TENNIS/VOCdevkit"
 ## Do we need to create a hash for directory name?
 CREATE_HASH_     = False
@@ -40,14 +40,14 @@ def cvat_to_voc(img_n_xml_base, annotations_dir, IMGROOTDIR, CREATE_HASH):
     ## Input CVAT XML file
     annxml = os.path.join(annotations_dir, hname + ".xml")
     ## Path to VOC annotations
-    outdir = os.path.join("/IMAGESETS/TENNIS/VOCdevkit", hname, "Annotations")
+    outdir = os.path.join(IMGROOTDIR, hname, "Annotations")
     ## Path to images
     imgdir = os.path.join(IMGROOTDIR, hname, "JPEGImages")
     print("Input CVAT XML     : {}".format(annxml))
     print("Original images    : {}".format(imgdir))
     print("Output Annotations : {}".format(outdir))
  
-    sys.path.insert(0, os.path.join(os.environ['HOME'], "Projects/opencv_cvat/utils"))
+    sys.path.insert(0, os.path.join(os.environ['HOME'], "Projects/cvat/utils"))
     from voc.converter import process_cvat_xml
     
     ## Run the converter
@@ -90,6 +90,8 @@ def main():
     ##--print("imgs-root-dir: {}".format(args.imgs_root_dir))
     ##--print("dohash: {}".format(args.dohash))
     ##--print("img_n_xml_base: {}".format(args.xml_or_img_basename))
+    #print("positional arg: {}, ann: {}, imgroot: {}, dohash: {}"
+    #      .format(args.xml_or_img_basename, args.annotations_dir, args.imgs_root_dir, args.dohash))
     cvat_to_voc(args.xml_or_img_basename, args.annotations_dir, args.imgs_root_dir, args.dohash)
 
 if __name__ == "__main__":

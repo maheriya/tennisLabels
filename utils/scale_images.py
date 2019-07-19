@@ -2,19 +2,20 @@
 # coding: utf-8
 
 ## Scale Images in a Directory
-# This notebook scales all images in a VOCdevkit directory to a specified output dimensions and updates the
-# existing labels accordingly.
-# The Pascal VOC labels use pixel values for bounding boxes, and as a result, need to be scaled appropriately
-# when images are scaled.
+# This script scales all images in a VOCdevkit dataset to a specified output dimensions and
+# updates the existing labels accordingly. The Pascal VOC annotations use pixel values for
+# bounding boxes, and as a result, need to be scaled with the same scale as the images.
 #
-# ## Why Scale?
-# We annotate the images in full resolution since it is easier to find shapes and more bounding boxes are
-# more accurate. However, for training we don't need the images at full scale. Also, carrying around images at
-# full scale requires a lot of disk space. Especially if we have to use Cloud resources.
+## Why Scale?
+# We annotate the images in full resolution since it is easier to find shapes and bounding
+# boxes can be more accurately defined. However, for training we don't need the images at full
+# resolution. Also, carrying around images at full resolution requires a lot of disk space.
+# Especially if we have to use cloud resources.
 # 
-# That is why we scale the images to the dimensions we need for training (keep it slightly larger then actual
-# size needed for training so that random crop augmentation can be effectively used. Also, it saves time during
-# training since images will not have to be scaled during training.
+# That is why we scale the images to the dimensions we need for training. Keeping it slightly
+# larger then actual size needed for training is optimal because that allows using the random
+# crop augmentation more effectively. Also, it saves time during training since images will
+# not have to be scaled during training.
 
 import os
 import sys
@@ -26,12 +27,9 @@ import subprocess
 
 
 if sys.version_info[0] < 3:
-    ## Python 2
     PYVER = 2
 else:
-    ## Python 3   
     PYVER = 3
-print("Python version is {}".format(PYVER))
 
 
 ## Global variables
@@ -62,11 +60,11 @@ def readAndScaleAnnotations(i_anndir, imgbase, SCALE):
     filepath = os.path.join(str(folder), 'JPEGImages', str(filename))
     ann.path = objectify.StringElement(filepath)
     for obj in ann.iter('object'):
-        obj.bndbox.xmin = objectify.StringElement(str(obj.bndbox.xmin * SCALE))
         obj.bndbox.ymin = objectify.StringElement(str(obj.bndbox.ymin * SCALE))
-        obj.bndbox.xmax = objectify.StringElement(str(obj.bndbox.xmax * SCALE))
+        obj.bndbox.xmin = objectify.StringElement(str(obj.bndbox.xmin * SCALE))
         obj.bndbox.ymax = objectify.StringElement(str(obj.bndbox.ymax * SCALE))
-    
+        obj.bndbox.xmax = objectify.StringElement(str(obj.bndbox.xmax * SCALE))
+
     return ann
 
 def show_imgs(cvimg, cvimg_scaled):
