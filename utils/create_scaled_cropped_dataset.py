@@ -57,18 +57,13 @@ import sys
 import cv2 as cv
 
 from lxml import etree
-from lxml import objectify
 from glob import glob
 import numpy as np
-import subprocess
 import re
 import argparse
-import copy
 
-if sys.version_info[0] < 3:
-    PYVER = 2
-else:
-    PYVER = 3
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import tennis_common as tc
 
 ## INPUT IMAGE DIMENSIONS (scaled to these dimensions if required)
 WIDTH  = 1920
@@ -82,75 +77,7 @@ SHOW_IMAGES = False
 
 ## Verbosity
 DEBUG = 0
-
-
-##############################################################################################
-# Visualization of labels for debug
-
-## Tennis Dataset labels
-LBL_NAMES = [ "__bg__", "ball", "racket", "otherball", "player", "nonplayer" ]
-LBL_COLORS = [
-        (0xde, 0xde, 0xde), # background
-        (0x48, 0x0c, 0xb8), # id 1
-        (0x53, 0xb8, 0x09), # id 2
-        (0xb8, 0x84, 0x0c), # ...
-        (0x48, 0x0c, 0xb8),
-        (0x53, 0xb8, 0x09),
-        (0xb8, 0x84, 0x0c),
-        (0x48, 0x0c, 0xb8),
-        (0x53, 0xb8, 0x09),
-        (0xb8, 0x84, 0x0c),
-        (0x48, 0x0c, 0xb8),
-        (0x48, 0x0c, 0xb8),
-        (0x53, 0xb8, 0x09),
-        (0xb8, 0x84, 0x0c),
-        (0x48, 0x0c, 0xb8),
-        (0x53, 0xb8, 0x09),
-        (0xb8, 0x84, 0x0c),
-        (0x53, 0xb8, 0x09),
-        (0xb8, 0x84, 0x0c),
-        (0x48, 0x0c, 0xb8),
-        (0x53, 0xb8, 0x09)]
-
-
-def writeBBLabelText(img, p1, p2, lblname, lblcolor, lblconf=None):
-    '''
-    img: image array
-    p1, p2: bounding box upper-left and bottom-right points
-    lblname: label name
-    lblcolor: color tuple
-    '''
-    fontFace = cv.FONT_HERSHEY_PLAIN
-    fontScale = 1.
-    thickness = 1
-    if lblconf is not None:
-        lblname += ' {:3.0f}%'.format(lblconf*100)
-    textSize, baseLine = cv.getTextSize(lblname, fontFace, fontScale, thickness)
-    txtRBx = p1[0] + textSize[0] + 2
-    if 0: ## Inside the box
-        txtRBy = p1[1] + textSize[1] + 2
-        img = cv.rectangle(img, p1, (txtRBx, txtRBy), lblcolor, cv.FILLED)
-        textOrg = (p1[0]+thickness, p1[1]+textSize[1])
-    else: ## Outside the box
-        txtRBy = p1[1] - textSize[1] - 2
-        img = cv.rectangle(img, p1, (txtRBx, txtRBy), lblcolor, cv.FILLED)
-        textOrg = (p1[0]+thickness, p1[1]) #+textSize[1])
-    img = cv.putText(img, lblname,
-                     textOrg, fontFace, fontScale,
-                     (255,255,255),      # inversecolor = Scalar::all(255)-lblcolor
-                     thickness)
-    return img
-
-
-def drawBoundingBox(image, bbox, lblid, lblconf=None):
-    """Draw bounding box on the image."""
-    ymin,xmin,ymax,xmax = [int(f) for f in bbox]
-    lblcolor = LBL_COLORS[lblid]
-    lblname  = LBL_NAMES[lblid]
-    image = cv.rectangle(image, (xmin, ymin), (xmax, ymax), lblcolor, 2)
-    image = writeBBLabelText(image, (xmin, ymin), (xmax, ymax), lblname, lblcolor, lblconf)
-    return image
-
+tc.DEBUG = DEBUG
 
 def show_imgs(cvimg, cvimg_n, oimgs=[]):
     global SHOW_IMAGES
@@ -169,196 +96,6 @@ def show_imgs(cvimg, cvimg_n, oimgs=[]):
         SHOW_IMAGES = False
 
 
-def getNumberingScheme(imgname):
-    fnum     = re.sub(r'.*[-_](\d+).jpg', r'\1', imgname)
-    fpre     = re.sub(r'(.*[-_])(\d+).jpg', r'\1', imgname)
-    numlen   = len(fnum)
-    numtmplt = '{:0' + str(numlen) + 'd}'
-    return (fpre, numtmplt)
-
-
-def getImageSizefromAnnotations(anndir, annfile):
-    ann = getAnnotations(os.path.join(anndir, annfile))
-
-    ## Get the image size from annotation
-    return (ann.size.width, ann.size.height)
-
-
-def getAnnotations(annfile):
-    ''' Read XML annotations file, objectify and return
-    '''
-    with open(annfile) as f:
-        xml = f.read()
-    return objectify.fromstring(xml)
-
-
-def scaleAnnotations(ann, SCALE):
-    ## Change the size based on scale
-    ann.size.width  = objectify.StringElement(str(int(ann.size.width  * SCALE)))
-    ann.size.height = objectify.StringElement(str(int(ann.size.height * SCALE)))
-    folder = ann.folder
-    filename = ann.filename
-    filepath = os.path.join(str(folder), 'JPEGImages', str(filename))
-    ann.path = objectify.StringElement(filepath)
-    for obj in ann.iter('object'):
-        obj.bndbox.xmin = objectify.StringElement(str(obj.bndbox.xmin * SCALE))
-        obj.bndbox.ymin = objectify.StringElement(str(obj.bndbox.ymin * SCALE))
-        obj.bndbox.xmax = objectify.StringElement(str(obj.bndbox.xmax * SCALE))
-        obj.bndbox.ymax = objectify.StringElement(str(obj.bndbox.ymax * SCALE))
-    
-    return ann
-
-def cropAnnotations(_ann, roi, filename, minsize=4):
-    '''
-    For a given roi and annotation, returns a cropped annotation that contains all bounding
-    boxes that can fit within the specified roi. If a bounding box is too small after
-    cropping, it is discarded.
-    Parameters:
-    ann: objectified annotation xml
-    roi: Input region of interest as [ymin,xmin,ymax,xmax]
-    filename: New file name to use instead of the old one
-    minsize: Resultant bounding boxes under this size (width or height) are discarded
-    '''
-    ymin,xmin,ymax,xmax = [int(f) for f in roi]
-
-    ann = copy.deepcopy(_ann)
-    ## Change the size based on RoI
-    ann.size.width  = objectify.StringElement(str(xmax-xmin))
-    ann.size.height = objectify.StringElement(str(ymax-ymin))
-    folder = ann.folder
-    ann.filename = objectify.StringElement(filename)
-    filepath = os.path.join(str(folder), 'JPEGImages', str(filename))
-    ann.path = objectify.StringElement(filepath)
-
-    for obj in ann.iter('object'):
-        b_xmin = obj.bndbox.xmin
-        b_ymin = obj.bndbox.ymin
-        b_xmax = obj.bndbox.xmax
-        b_ymax = obj.bndbox.ymax
-        # Clamp the bbox to RoI to make things simpler (this crops the bbox to remain within RoI)
-        if b_xmin < xmin: b_xmin = xmin
-        if b_ymin < ymin: b_xmin = ymin
-        if b_xmax > xmax: b_xmax = xmax
-        if b_ymax > ymax: b_xmax = ymax
-
-        if (# T-L within RoI?
-            (xmin <= b_xmin and b_xmin <= xmax and ymin <= b_ymin and b_ymin <= ymax) and
-            # B-R within RoI?
-            (xmin <= b_xmax and b_xmax <= xmax and ymin <= b_ymax and b_ymax <= ymax) and
-            # minsize criteria met?
-            ((b_xmax - b_xmin) >= minsize) and ((b_ymax - b_ymin) >= minsize)
-            ):
-            ## The [cropped] bbox is within the RoI. Now we only have to translate to (xmin,ymin) as origin
-            obj.bndbox.xmin = objectify.StringElement(str(b_xmin-xmin))
-            obj.bndbox.ymin = objectify.StringElement(str(b_ymin-ymin))
-            obj.bndbox.xmax = objectify.StringElement(str(b_xmax-xmin))
-            obj.bndbox.ymax = objectify.StringElement(str(b_ymax-ymin))
-        else:
-            ##--## Discard the obj --> Check this manually
-            ##--obj_xml = etree.tostring(obj, pretty_print=True, xml_declaration=False)
-            ##--print("Deleting object {}".format(obj_xml))
-            obj.getparent().remove(obj)
-    
-    return ann
-
-'''
-A class to encapsulate bounding boxes, and realated operations
-'''
-class BoundingBoxes:
-
-    def __init__(self, name):
-        self.bboxes = []
-        self.name = name
-
-    def addBBox(self, bbox):
-        box = [float(c) for c in bbox] ## Convert to float
-        self.bboxes.append(box)
-
-    def getBBox(self, boxid):
-        return self.bboxes[boxid]
-
-    def getImgRoI(self, boxid, img):
-        '''
-        Return an RoI from the input numpy.ndarray using selected boxid
-        '''
-        ymin,xmin,ymax,xmax = [int(f) for f in self.bboxes[boxid]]
-        return img[ymin:ymax, xmin:xmax]
-
-    def getNumBBoxes(self):
-        return len(self.bboxes)
-
-    def getUBox(self):
-        '''
-        Returns union of all bounding boxes
-        '''
-        if len(self.bboxes) == 0:
-            return None
-        ymin = min([b[0] for b in self.bboxes])
-        xmin = min([b[1] for b in self.bboxes])
-        ymax = max([b[2] for b in self.bboxes])
-        xmax = max([b[3] for b in self.bboxes])
-        ubox = [ymin, xmin, ymax, xmax]
-        return ubox
-
-    def findEnclosing(self, bbox):
-        '''
-        For a given bbox, finds a bbox that best encloses it
-        The criteria for 'best' is the minimum distance from the center of the given bbox to
-        bboxes stored in this class. A check is performed for the box with smallest distance
-        to ensure that it does indeed enclose the given bbox. It the 'best' zone doesn't fully
-        enclose the given bbox, a warning message is printed.
-        Returns the index of the bbox that 'best' encloses the bbox.
-        '''
-        if bbox is None:
-            return None
-        # Find centers of bboxes in this class
-        zcenters = [self.findCenter(b) for b in self.bboxes]
-        bcenter = self.findCenter(bbox)
-        distances = [cv.norm(bcenter, zcenter) for zcenter in zcenters]
-        index = int(np.argmin(distances))
-        if DEBUG>=2:
-            print("Distances: {}".format(distances))
-            print("Min distance: {}".format(distances[index]))
-            print("Best Zone: {}".format(index))
-        return index
-
-
-    def findCenter(self, b):
-        if DEBUG>=2:
-            self.printBBox(b)
-        ymin,xmin,ymax,xmax = b
-        xc = xmin + (xmax-xmin)/2.0
-        yc = ymin + (ymax-ymin)/2.0
-        if DEBUG>=2:
-            print("Center (x,y): ({:.2f}, {:.2f})".format(xc, yc))
-        return (xc, yc)
-
-
-    def printBBox(self,b):
-        print("     ymin     xmin     ymax     xmax")
-        str = ""
-        for c in b:
-            str += " {:8.2f}".format(float(c))
-        print(str)
-
-
-def getUBoxes(anns):
-    '''
-    Returns union of 'ball' and 'racket' bboxes.
-    Will scale the annotations if not to the default global width
-    Input anns: Array of objectified xml annotations
-    '''
-    ball_bboxes   = BoundingBoxes('ball')
-    racket_bboxes = BoundingBoxes('racket')
-    for ann in anns:
-        for obj in ann.iter('object'):
-            if obj.name == 'ball':
-                ball_bboxes.addBBox([obj.bndbox.ymin, obj.bndbox.xmin, obj.bndbox.ymax, obj.bndbox.xmax])
-            elif obj.name == 'racket':
-                racket_bboxes.addBBox([obj.bndbox.ymin, obj.bndbox.xmin, obj.bndbox.ymax, obj.bndbox.xmax])
-
-    return ball_bboxes.getUBox(), racket_bboxes.getUBox()
- 
 def drawZone(img, zid):
     ## This is a fixed -- hardcoded -- grid of 4 equal sized zones:
     # Zones: top-left, top-right, bottom-left, bottom-right
@@ -380,20 +117,6 @@ def drawZone(img, zid):
     return img
 
 
-def runSystemCmd(cmd):
-    '''
-    Returns output as an array of lines. Error is discarded.
-    '''
-    # shell=True allows using a Unix pipe (for example) in the command
-    proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
-    output,err = proc.communicate()
-    if PYVER<3:
-        output = output.rstrip().split('\n')
-    else:
-        output = (bytes.decode(output).rstrip()).split('\n')
-    return output
-
-
 def parseArgs():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument(
@@ -401,12 +124,12 @@ def parseArgs():
         help="The input VOC root directory."
     )
     parser.add_argument(
-        "outvoc", type=str, #default="/IMAGESETS/TENNIS/VOCdevkitScaled",
+        "outvoc", type=str, #default="/IMAGESETS/TENNIS/VOCdevkitCropped",
         help="Output VOC root directory."
     )
     parser.add_argument(
         "--height", type=float, default=300, required=False,
-        help="Output image height. "
+        help="Output image height. Not used right now."
     )
     
     args = parser.parse_args()
@@ -427,24 +150,24 @@ OUT_IMGDIR = os.path.join(OUT_VOCDIR, "{}", "JPEGImages") # Template
 OUT_ANNDIR = os.path.join(OUT_VOCDIR, "{}", "Annotations")# Template
 
 ## Find base datasets containing annotations
-output = runSystemCmd(r"find {}/ -mindepth 3 -name '*.xml' | sed -e 's#/Annotations/.*.xml##g' | sort | uniq".format(IN_VOCDIR))
+output = tc.runSystemCmd(r"find {}/ -mindepth 3 -name '*.xml' | sed -e 's#/Annotations/.*.xml##g' | sort | uniq".format(IN_VOCDIR))
 vocbases = [os.path.basename(d) for d in output]
 print(vocbases)
 print("There are {} datasets to process".format(len(vocbases)))
 
 
 cnt = 0
-for base in vocbases:
-    print("VOC Base: {}".format(base))
-    i_imgdir = IN_IMGDIR.format(base)
-    i_anndir = IN_ANNDIR.format(base)
+for vocbase in vocbases:
+    print("VOC Base: {}".format(vocbase))
+    i_imgdir = IN_IMGDIR.format(vocbase)
+    i_anndir = IN_ANNDIR.format(vocbase)
     if not os.path.isdir(i_imgdir):
         print("Input image dir {} is not accessible".format(i_imgdir))
     if not os.path.isdir(i_anndir):
         print("Input annotations dir {} is not accessible".format(i_anndir))
 
-    o_imgdir = OUT_IMGDIR.format(base)
-    o_anndir = OUT_ANNDIR.format(base)
+    o_imgdir = OUT_IMGDIR.format(vocbase)
+    o_anndir = OUT_ANNDIR.format(vocbase)
     for idir in [o_imgdir, o_anndir]:
         if not os.path.isdir(idir):
             os.makedirs(idir)
@@ -455,17 +178,14 @@ for base in vocbases:
     imgs = glob("{}/*.jpg".format(i_imgdir))
     imgs = [os.path.basename(i) for i in imgs]
     imgs.sort() # Sort images to pick frames in order. It is assumed the images are named likewise
+    (fprefix, ntemplate) = tc.getNumberingScheme(imgs[0])
 
-    (fprefix, ntemplate) = getNumberingScheme(imgs[0])
-    #print("fprefix: {}, template: {}".format(fprefix, ntemplate))
-
-    kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE,(4,4))
     
     ## Define the grid points
     gy = [0, int(HEIGHT/3.), int(HEIGHT*2.0/3.0), HEIGHT]
     gx = [0, int(WIDTH/3.), int(WIDTH*2.0/3.0), WIDTH]
     ## Create zones based on the grid
-    zones = BoundingBoxes('zones')
+    zones = tc.BoundingBoxes('zones')
     #              ymin   xmin   ymax   xmax
     zones.addBBox([gy[0], gx[0], gy[2], gx[2]])  # Top-left zone
     zones.addBBox([gy[0], gx[1], gy[2], gx[3]])  # Top-right zone
@@ -474,47 +194,63 @@ for base in vocbases:
 
     annnames = glob("{}/*.xml".format(i_anndir))
     annnames = [os.path.basename(i) for i in annnames]
-    annnames.sort() # Sort files to pick frames in order. It is assumed the xml/images are named likewise
+    annnames.sort() # Sort files to pick frames in order. It is assumed that xml/images are named likewise
     if len(annnames) < 3:
         print("This VOC Base has less than 3 annotations. Skipping.")
         continue
 
+    kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE,(4,4))
     i = 2  ## Index
-    for ann in annnames[2:]:
-        img_i  = imgs[i]
-        img_p1 = imgs[i-1]
-        img_p2 = imgs[i-2]
+    for annfile in annnames[2:]:
+        annName_i  = annnames[i]
+        annName_p1 = annnames[i-1]
+        annName_p2 = annnames[i-2]
         i += 1
 
-        fnum    = int(re.sub(r'.*[-_](\d+).jpg', r'\1', img_i))
-        eimg_i  = fprefix + ntemplate.format(fnum) + '.jpg'
-        eimg_p1 = fprefix + ntemplate.format(fnum-1) + '.jpg'
-        eimg_p2 = fprefix + ntemplate.format(fnum-2) + '.jpg'
-        if img_i != eimg_i or img_p1 != eimg_p1 or img_p2 != eimg_p2:
+        fnum    = int(re.sub(r'.*[-_](\d+).xml', r'\1', annName_i))
+        eannName_i  = fprefix + ntemplate.format(fnum) + '.xml'
+        eannName_p1 = fprefix + ntemplate.format(fnum-1) + '.xml'
+        eannName_p2 = fprefix + ntemplate.format(fnum-2) + '.xml'
+        if annName_i != eannName_i or annName_p1 != eannName_p1 or annName_p2 != eannName_p2:
             # Not a continuous series of three frames including previous two, we skip this frame
-            print("Skipping {}".format(img_i))
-            continue
+            if 1: #DEBUG>=1:
+                print("Skipping. Frame sequence not found for {}. ".format(annName_i))
+            continue  # Get next image/ann
         else:
             if DEBUG>=1:
-                print("Processing {}".format(img_i))
+                print("Processing {}".format(annName_i))
 
         ## Now that we got a three sequential frames, let's read annotations and get uboxes
         ## uboxes = union of bboxes for each of the 'ball' or 'racket' bbox in all three images
         ## We are assuming only one 'ball' annotation per image. However, it is easy to handle
         ## multiple balls per image too. Not needed for our dataset.
         annfiles = [fprefix + ntemplate.format(fn) + '.xml' for fn in [fnum, fnum-1, fnum-2]]
-        anns = [getAnnotations(os.path.join(i_anndir, annfile)) for annfile in annfiles]
-        w = anns[0].size.width #, h = getImageSizefromAnnotations(i_anndir, annfiles[0])
+        anns = [tc.getAnnotations(os.path.join(i_anndir, annfile)) for annfile in annfiles]
+        seq = True
+        for ann_ in anns:
+            objs = ann_.findall('.//object/name')
+            if 'ball' not in objs:
+                seq = False
+                break # don't check other anns
+        if not seq:
+            if 1: # DEBUG>=1:
+                print("\tSkipping. 3 ball labels sequence not found for {}".format(annName_i))
+            continue # Get next image/ann
+        ballUBox, _ = tc.getUBoxes(anns[1:]) # Find union bbox for ball label from two previous frames
+        assert(ballUBox is not None),"Error! Cannot find union of previous two balls bounding boxes"
+        ## Add this as a new label. We call this label 'pballs' for 'previous balls'
+        tc.addAnnotation(anns[0], 'pballs', ballUBox)
 
+        w = anns[0].size.width
         ## Scale input to WIDTHxHEIGHT fixed dimensions if input size is different
         if w != WIDTH:
             scale = float(WIDTH) / float(w)
             ## Scale annotations
-            anns = [scaleAnnotations(ann, scale) for ann in anns]
+            anns = [tc.scaleAnnotations(ann, scale) for ann in anns]
         else:
             scale = 1.0
 
-        ballUBox, racketUBox = getUBoxes(anns)
+        ballUBox, racketUBox = tc.getUBoxes(anns)
         ## Find best enclosing zone for ball and racket UBoxes
         zid_b = zones.findEnclosing(ballUBox)
         zid_r = zones.findEnclosing(racketUBox)
@@ -534,6 +270,7 @@ for base in vocbases:
             continue
 
         ## load images as grayscale
+        img_i, img_p1, img_p2 = [fprefix + ntemplate.format(fn) + '.jpg' for fn in [fnum, fnum-1, fnum-2]]
         _cvimg_c = cv.imread(os.path.join(i_imgdir, img_i), cv.IMREAD_COLOR)
         _cvimg   = cv.cvtColor(_cvimg_c, cv.COLOR_BGR2GRAY)
         _cvimg1  = cv.imread(os.path.join(i_imgdir, img_p1), cv.IMREAD_GRAYSCALE)
@@ -577,13 +314,13 @@ for base in vocbases:
         outimgs = []
         outanns = []
         for zid in crop_zids:
-            base = fprefix + ntemplate.format(fnum) + '-z{}'.format(zid)
-            imgname = base + '.jpg'
-            annname = base + '.xml'
+            imgbase = fprefix + ntemplate.format(fnum) + '-z{}'.format(zid)
+            imgname = imgbase + '.jpg'
+            annname = imgbase + '.xml'
             imgfilenames.append(imgname)
             annfilenames.append(annname)
             roi = zones.getBBox(zid)
-            outann = cropAnnotations(anns[0], roi, imgname, 6)
+            outann = tc.cropAnnotations(anns[0], roi, imgname, 6)
             outimg = zones.getImgRoI(zid, cvimg_n).copy()
             outanns.append(outann)
             outimgs.append(outimg)
@@ -593,19 +330,13 @@ for base in vocbases:
 
 
         ######################################################################################
-        ## Write files 
+        ## Write output files
         ######################################################################################
+
         for index in range(len(outimgs)):
             ## Write annotation files
-            obj_xml = etree.tostring(outanns[index], pretty_print=True, xml_declaration=False)
-            annfile = os.path.join(o_anndir, annfilenames[index])
-            if DEBUG>=2:
-                print("Writing {}".format(annfile))
-            with open(annfile, 'w') as f:
-                if PYVER>=3:
-                    f.write(obj_xml.decode('utf8'))
-                else:
-                    f.write(obj_xml)
+            tc.cleanUpAnnotations(outanns[index], ['ball', 'racket', 'pballs'])
+            tc.writeAnnotation(outanns[index], os.path.join(o_anndir, annfilenames[index]))
 
             ## Write cropped motion images
             imgfile = os.path.join(o_imgdir, imgfilenames[index])
@@ -616,11 +347,17 @@ for base in vocbases:
         if SHOW_IMAGES:
             for zid in crop_zids:
                 cvimg_n = drawZone(cvimg_n, zid)
+            for index in range(len(outimgs)):
+                img = outimgs[index]
+                for obj in outanns[index].iter('object'):
+                    bbox = [obj.bndbox.ymin, obj.bndbox.xmin, obj.bndbox.ymax, obj.bndbox.xmax]
+                    outimgs[index] = tc.drawBoundingBox(outimgs[index], bbox, tc.LBL_IDS[obj.name])
+
             ## Draw bounding boxes
             if ballUBox is not None:
-                cvimg_n = drawBoundingBox(cvimg_n, ballUBox, 1)
+                cvimg_n = tc.drawBoundingBox(cvimg_n, ballUBox, 1)
             if racketUBox is not None:
-                cvimg_n = drawBoundingBox(cvimg_n, racketUBox, 2)
+                cvimg_n = tc.drawBoundingBox(cvimg_n, racketUBox, 2)
             show_imgs(cvimg_c, cvimg_n, outimgs)
 
         #if (cnt >= 50):
