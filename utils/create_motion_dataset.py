@@ -40,63 +40,55 @@
 # current frame. For reference, that method is as follows (we don't use that):
 #  cv_algo_channel = bitwise_and(abs(curr-prev1), abs(curr-prev2)).
 # 
-# 
+# Latest:
+# A. Data mining: Find consecutive frames containing ball labels (don't care about racket).
+#    Until now we only looked for sequence of images without looking at actual labels. Now,
+#    we consider only those frame sequences for training that all have ball labels.
+# B. Use two trailing ball bboxes, as a second label. Take a union of these two bboxes. The
+#    intention is to task the neural network with extra detection duties during training. The 
+#    hope is that by doing this, the network will be forced to learn extra motion information.
+#    and at inference time, we cab utilize this bbox to determine the direction of the ball.
+# The above A and B are independent additions; either can be implemented without the other.
+
 
 from __future__ import print_function
 import os
 import sys
 import cv2 as cv
 
-from lxml import etree
-from lxml import objectify
 from glob import glob
 import subprocess
 import re
-import shutil
+import argparse
 
-if sys.version_info[0] < 3:
-    PYVER = 2
-else:
-    PYVER = 3
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import tennis_common as tc
 
 
-## Select motion type
 ## MOTION DB setting: '3FRAMES' or 'FRAMESDIFF'
-#MOTION_TYPE = '3FRAMES'
 MOTION_TYPE = 'FRAMESDIFF'
 
-## Select Number of Frames to Combine
-# The simplest is to combine or pack three frames into three channels of the image. This will not require any changes to the network when re-training. If we choose more than three images, the input dimensions change, and that will require net-surgery of the network.
-
-NFRAMES = 3
 ## Change this to view images
 SHOW_IMAGES = False
 
+## Verbosity
+DEBUG = 0
+tc.DEBUG = DEBUG
 
 def show_imgs(cvimg, cvimg_n):
     global SHOW_IMAGES
     cv.imshow("Original image", cvimg)
     cv.imshow("Motion image", cvimg_n)
     key = cv.waitKey(0) & 255
-    cv.destroyAllWindows()
     if key == 27:
-        #sys.exit(0)
-        assert(False), "Exit requested"
+        cv.destroyAllWindows()
+        sys.exit(0)
     elif key == ord('g'): ## Go for it; don't show images after this
+        cv.destroyAllWindows()
         SHOW_IMAGES = False
-
-def getNumberingScheme(imgname):
-    fnum     = re.sub(r'.*[-_](\d+).jpg', r'\1', imgname)
-    fpre     = re.sub(r'(.*[-_])(\d+).jpg', r'\1', imgname)
-    numlen   = len(fnum)
-    numtmplt = '{:0' + str(numlen) + 'd}'
-    return (fpre, numtmplt)
-
-
 
 
 ##-#####################################################################################
-import argparse
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument(
     "invoc", type=str, #default="/IMAGESETS/TENNIS/VOCdevkitScaled",
@@ -108,7 +100,6 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-
 ## Main variables
 IN_VOCDIR = os.path.abspath(args.invoc)
 IN_IMGDIR = os.path.join(IN_VOCDIR, "{}", "JPEGImages")   # Template
@@ -119,107 +110,131 @@ OUT_IMGDIR = os.path.join(OUT_VOCDIR, "{}", "JPEGImages") # Template
 OUT_ANNDIR = os.path.join(OUT_VOCDIR, "{}", "Annotations")# Template
 
 ## Find base datasets containing annotations
-findtask = subprocess.Popen(
-    [r"find {}/ -mindepth 3 -name '*.xml' | sed -e 's#/Annotations/.*.xml##g' | sort | uniq".format(IN_VOCDIR)], 
-     shell=True, stdout=subprocess.PIPE)
-output,err = findtask.communicate()
-if PYVER<3:
-    output = output.rstrip().split('\n')
-else:
-    output = (bytes.decode(output).rstrip()).split('\n')
+output = tc.runSystemCmd(r"find {}/ -mindepth 3 -name '*.xml' | sed -e 's#/Annotations/.*.xml##g' | sort | uniq".format(IN_VOCDIR))
 vocbases = [os.path.basename(d) for d in output]
-print(vocbases)
+#print(vocbases)
 print("There are {} datasets to process".format(len(vocbases)))
 
 
 cnt = 0
-for base in vocbases:
-    print("VOC Base: {}".format(base))
-    i_imgdir = IN_IMGDIR.format(base)
-    i_anndir = IN_ANNDIR.format(base)
+for vocbase in vocbases:
+    print("VOC Base: {}".format(vocbase))
+    i_imgdir = IN_IMGDIR.format(vocbase)
+    i_anndir = IN_ANNDIR.format(vocbase)
     if not os.path.isdir(i_imgdir):
         print("Input image dir {} is not accessible".format(i_imgdir))
     if not os.path.isdir(i_anndir):
         print("Input annotations dir {} is not accessible".format(i_anndir))
 
-    o_imgdir = OUT_IMGDIR.format(base)
-    o_anndir = OUT_ANNDIR.format(base)
-    for dir in [o_imgdir, o_anndir]:
-        if not os.path.isdir(dir):
-            os.makedirs(dir)
+    o_imgdir = OUT_IMGDIR.format(vocbase)
+    o_anndir = OUT_ANNDIR.format(vocbase)
+    for idir in [o_imgdir, o_anndir]:
+        if not os.path.isdir(idir):
+            os.makedirs(idir)
         else:
-            print("Dir {} already exists".format(dir))
+            print("Dir {} already exists".format(idir))
 
     ## Create image list to process
     imgs = glob("{}/*.jpg".format(i_imgdir))
     imgs = [os.path.basename(i) for i in imgs]
     imgs.sort() # Sort images to pick frames in order. It is assumed the images are named likewise
+    (fprefix, ntemplate) = tc.getNumberingScheme(imgs[0])
 
-    (fprefix, ntemplate) = getNumberingScheme(imgs[0])
-    #print("fprefix: {}, template: {}".format(fprefix, ntemplate))
+
+    annnames = glob("{}/*.xml".format(i_anndir))
+    annnames = [os.path.basename(i) for i in annnames]
+    annnames.sort() # Sort files to pick frames in order. It is assumed that xml/images are named likewise
+    if len(annnames) < 3:
+        print("This VOC Base has less than 3 annotations. Skipping.")
+        continue
 
     kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE,(4,4))
     i = 2  ## Index
-    for img in imgs[2:]:
-        imgbase = os.path.splitext(os.path.basename(img))[0]
-
+    for annfile in annnames[2:]:
         img_i  = imgs[i]
-        img_i1 = imgs[i-1]
-        img_i2 = imgs[i-2]
+        img_p1 = imgs[i-1]
+        img_p2 = imgs[i-2]
         i += 1
 
         fnum    = int(re.sub(r'.*[-_](\d+).jpg', r'\1', img_i))
         eimg_i  = fprefix + ntemplate.format(fnum) + '.jpg'
-        eimg_i1 = fprefix + ntemplate.format(fnum-1) + '.jpg'
-        eimg_i2 = fprefix + ntemplate.format(fnum-2) + '.jpg'
-        if img_i != eimg_i or img_i1 != eimg_i1 or img_i2 != eimg_i2:
+        eimg_p1 = fprefix + ntemplate.format(fnum-1) + '.jpg'
+        eimg_p2 = fprefix + ntemplate.format(fnum-2) + '.jpg'
+        if img_i != eimg_i or img_p1 != eimg_p1 or img_p2 != eimg_p2:
             # Not a continuous series of three frames including previous two, we skip this frame
-            print("Skipping {}".format(img_i))
-            continue
+            if DEBUG>=1:
+                print("Skipping. Frame sequence not found for {}. ".format(img_i))
+            continue  # Get next image/ann
+        else:
+            if DEBUG>=1:
+                print("Processing {}".format(img_i))
 
+        ## Now that we found three sequential frames, let's check if they all have ball labels
+        annfiles = [fprefix + ntemplate.format(fn) + '.xml' for fn in [fnum, fnum-1, fnum-2]]
+        anns = [tc.getAnnotations(os.path.join(i_anndir, annfile)) for annfile in annfiles]
+        seq = True
+        for ann_ in anns:
+            objs = ann_.findall('.//object/name')
+            if 'ball' not in objs:
+                seq = False
+                break # don't check other anns
+        if not seq:
+            if DEBUG>=1:
+                print("\tSkipping. 3 ball labels sequence not found for {}".format(img_i))
+            continue # Get next image/ann
 
-        ## load images as grayscale
+        ballUBox, _ = tc.getUBoxes(anns[1:]) # Find union bbox for ball label from two previous frames
+        assert(ballUBox is not None),"Error! Cannot find union of previous two balls bounding boxes"
+        ## Add this as a new label. We call this label 'pballs' for 'previous balls'
+        tc.addAnnotation(anns[0], 'pballs', ballUBox)
+
+        ## load images
         cvimg_c= cv.imread(os.path.join(i_imgdir, img_i), cv.IMREAD_COLOR)
         cvimg  = cv.cvtColor(cvimg_c, cv.COLOR_BGR2GRAY)
-        cvimg1 = cv.imread(os.path.join(i_imgdir, img_i1), cv.IMREAD_GRAYSCALE)
-        cvimg2 = cv.imread(os.path.join(i_imgdir, img_i2), cv.IMREAD_GRAYSCALE)
-        ## Create frame-diff based background subtracted image with a trail of three balls
-        ## We are doing this (keeping the trail) on purpse. This to provide the network
-        ## with some referene in the case when the ball is not visible in the current frame
-        ## but it was visible in previous frames.
-        diff_p1p2 = cv.absdiff(cvimg1, cvimg2)
-        diff_cp1  = cv.absdiff(cvimg, cvimg1)
-        image_b   = cv.bitwise_or(diff_p1p2, diff_cp1) ## This will create the trail of three objects
-        image_diff= cv.dilate(image_b, kernel) ## enlarge the blobs
+        cvimg1 = cv.imread(os.path.join(i_imgdir, img_p1), cv.IMREAD_GRAYSCALE)
+        cvimg2 = cv.imread(os.path.join(i_imgdir, img_p2), cv.IMREAD_GRAYSCALE)
 
         if MOTION_TYPE == '3FRAMES':
-            # Merge (merge 3 grascale motion frames into BGR channels)
+            # Merge 3 grayscale motion frames into BGR channels)
             cvimg_n  = cv.merge([cvimg, cvimg1, cvimg2])
         elif MOTION_TYPE == 'FRAMESDIFF':
+            ## Create frame-diff based background subtracted image with a trail of three balls
+            ## We are doing this (keeping the trail) on purpse. This to provide the network
+            ## with some referene in the case when the ball is not visible in the current frame
+            ## but it was visible in previous frames.
+            diff_p1p2 = cv.absdiff(cvimg1, cvimg2)
+            diff_cp1  = cv.absdiff(cvimg, cvimg1)
+            image_b   = cv.bitwise_or(diff_p1p2, diff_cp1) ## This will create the trail of three objects
+            #bring back? =>#image_diff= cv.dilate(image_b, kernel) ## enlarge the blobs
             # Replace blue channel with frame diff. Blue channel is less important in tennis for us
             # since the ball is greenish yellow -- most information in red and green channel.
-            cvimg_c[:,:,0] = image_diff
-            cvimg_n = cvimg_c
+            cvimg_n = cvimg_c.copy()
+            cvimg_n[:,:,0] = image_b #image_diff
         else:
             print("Unsupported motion type {}".format(MOTION_TYPE))
             sys.exit(1)
 
+        ######################################################################################
+        ## Write output files
+        ######################################################################################
+
+        ## Write annotation file 
+        tc.cleanUpAnnotations(anns[0], ['ball', 'racket', 'pballs'])
+        tc.writeAnnotation(anns[0], os.path.join(o_anndir, annfiles[0]))
+        
+        ## Write new motion image
+        cv.imwrite(os.path.join(o_imgdir, img_i), cvimg_n)
+            
         if SHOW_IMAGES:
-            # Check images
+            for obj in anns[0].iter('object'):
+                bbox = [obj.bndbox.ymin, obj.bndbox.xmin, obj.bndbox.ymax, obj.bndbox.xmax]
+                cvimg_n = tc.drawBoundingBox(cvimg_n, bbox, tc.LBL_IDS[obj.name])
+
+            # show annotated images
             show_imgs(cvimg, cvimg_n)
 
-        ## Copy annoation file
-        i_annfile = os.path.join(i_anndir, imgbase + ".xml")
-        o_annfile = os.path.join(o_anndir, imgbase + ".xml")
-        shutil.copy(i_annfile, o_annfile)
-        
-        ## Write new combined motion image
-        o_imgfile = os.path.join(o_imgdir, imgbase+".jpg")
-        cv.imwrite(o_imgfile, cvimg_n)
-        #if (cnt >= 10):
-        #    assert(False), "Temp exit"
-            
         cnt += 1
 
+cv.destroyAllWindows()
 print("Done. Motion Dataset created with {} annotations and images".format(cnt))
 
