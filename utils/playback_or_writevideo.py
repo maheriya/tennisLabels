@@ -7,21 +7,51 @@ import os
 import sys
 import cv2 as cv
 from glob import glob
+import argparse
 
 ## Do you want to monitor what is being written?
 PLAYBACK = True
 
-## Video dump directory:
-IMGPATH = 'VideoStreams/frames-left'
+def parseArgs():
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument(
+        "inDir", type=str, 
+        help="The input frames dump directory."
+    )
+    parser.add_argument(
+        "aviFile", type=str,
+        help="Output AVI file name path"
+    )
+    
+    args = parser.parse_args()
+    return args
+
+
+
+
+##-#####################################################################################
+args = parseArgs()
+IMGPATH = args.inDir
+VIDFILE = os.path.abspath(args.aviFile)
+ 
 if not os.path.isdir(IMGPATH):
     print("Video dump dir {} doesn't exist".format(IMGPATH))
     sys.exit(1)
 
 
-VIDFILE = os.path.join(".", "tennis.avi")
+outdir = os.path.dirname(VIDFILE)
+if not os.path.isdir(outdir):
+    os.makedirs(outdir)
+
+imgs = glob('{}/*.jpg'.format(IMGPATH))
+imgs.sort()
+img = cv.imread(imgs[0], 1)
+height         = img.shape[0]
+width          = img.shape[1]
+
 #fourcc = cv.VideoWriter_fourcc(*'XVID')
 fourcc = cv.VideoWriter_fourcc(*'DIVX')  ## DVIX and XVID are tested. Use vlc player to view... KM
-writer = cv.VideoWriter(VIDFILE, fourcc, 60, (1920, 1080))
+writer = cv.VideoWriter(VIDFILE, fourcc, 60, (width, height))
 if not writer.isOpened():
     print("Could not create video writer")
     sys.exit(1)
@@ -29,8 +59,6 @@ else:
     print("Created video writer to write {} video file".format(VIDFILE))
 
 ## Browse through a source directory of video dump and create an AVI file
-imgs = glob('{}/*.jpg'.format(IMGPATH))
-imgs.sort()
 for imgfile in imgs:
     img = cv.imread(imgfile, 1)
     writer.write(img)
