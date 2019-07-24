@@ -7,11 +7,21 @@ if ($#argv != 2) then
 endif
 
 set cdir = `pwd`
-set repodir = `cd $argv[1] && pwd`
-set vocdir = `cd $argv[2] && pwd `
-
+set repodir = $argv[1]
+set vocdir = $argv[2]
+if (! -d $repodir) then
+  echo "$repodir doesn't exist"
+  exit(1)
+endif
+if (! -d $vocdir) then
+  echo "$vocdir doesn't exist"
+  exit(1)
+endif
+set repodir = `cd $repodir && pwd`
+set vocdir = `cd $vocdir && pwd `
 echo "Splitting VOC datasets in $vocdir"
-cd $vocdir
+
+cd $vocdir || exit(1)
 echo "In $vocdir"
 foreach base ( `/bin/ls` )
   @ cnt = `find $vocdir/$base/Annotations/ -name '*.xml' | wc -l`
