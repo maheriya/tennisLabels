@@ -57,7 +57,7 @@ if 1:
     annnames = [os.path.basename(i) for i in annnames]
     annnames.sort() # Sort files to pick frames in order. It is assumed that xml/images are named likewise
     for annfile in annnames:
-        try: zone = int(re.sub(r'.*-z(\d).xml', r'\1', annfile))
+        try: zone = int(re.sub(r'.*-z(\d+).xml', r'\1', annfile))
         except: zone = None
         
         ann = tc.getAnnotations(os.path.join(i_anndir, annfile))
